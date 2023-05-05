@@ -1,1 +1,2 @@
-#testing...sick man
+#Client - FrontEnd
+#Server - BackEnd
