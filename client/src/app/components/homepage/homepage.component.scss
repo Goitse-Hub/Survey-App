@@ -12,13 +12,16 @@
 }
 
 .btn1 {
-    background-color: #BFD9DA;
+    background-color: #87AAAE;
+
     color: white;
     transition: 0.3s ease-in-out;
 }
 
 .btn1:hover {
-    background-color: #87AAAE;
+    background-color: #4b9a9e;
+
+    // background-color: #87AAAE;
     color: white;
     transform: scale(1.1);
     transition: 0.3s ease-in-out;  
@@ -27,4 +30,11 @@
 .btn2:hover {
     transform: scale(1.1);
     transition: 0.3s ease-in-out; 
+}
+
+.py-5 {
+    background-color: #4b9a9e;
+}
+
+.my-5 {
 }
