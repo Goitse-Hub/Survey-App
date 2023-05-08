@@ -1,0 +1,34 @@
+#create{
+    background-color: azure;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#create:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+#take{
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#take:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.info{
+    text-align: center;
+}
+.survey-btn {
+    text-align: center;
+    margin-top: 1rem;
+
+}
+
+.survey-btn a{
+    margin-left: 1rem;
+
+}

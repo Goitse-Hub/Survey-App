@@ -18,6 +18,7 @@ export class LoginComponent {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+username: any;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 

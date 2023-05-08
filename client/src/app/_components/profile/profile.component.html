@@ -1,5 +1,11 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron">
+    <header >
+
+      <div class="heading">
+        <img src="https://surveyjs.io/Content/Images/V2/dashboard-page/02-Dashboard.png" width="50rem">
+        <h2>DASHBOARD</h2>
+      </div>
+      
       <h3>
         <strong>{{ currentUser.username }}</strong> Profile
       </h3>
