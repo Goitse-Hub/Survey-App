@@ -1,0 +1,23 @@
+.sharebtn{
+    border: 0;
+    
+    background-color: white;
+}
+.menu{
+    border: 0;
+    background-color: white;
+}
+.optionsContainer{
+    margin-top: 5px;
+    border-radius: 10px;
+}
+.card{
+    margin-top: 20px;
+}
+.navbar-name{
+    font-size: larger;
+    font-weight: 500;
+}
+.card-body{
+   text-align: center;
+}
