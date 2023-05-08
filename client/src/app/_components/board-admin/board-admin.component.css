@@ -4,15 +4,20 @@
     background-color: white;
 }
 .menu{
-    border: 0;
+    border: none;
     background-color: white;
+
 }
 .optionsContainer{
-    margin-top: 5px;
-    border-radius: 10px;
+    display: flex;
 }
 .card{
     margin-top: 20px;
+    margin: 50px;
+}
+
+.navbar{
+background-color: antiquewhite;
 }
 .navbar-name{
     font-size: larger;
@@ -20,4 +25,8 @@
 }
 .card-body{
    text-align: center;
+}
+
+#create{
+    margin-bottom: 5px;
 }
