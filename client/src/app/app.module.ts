@@ -13,6 +13,7 @@ import { ProfileComponent } from './_components/profile/profile.component';
 import { BoardAdminComponent } from './_components/board-admin/board-admin.component';
 import { BoardModeratorComponent } from './_components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './_components/board-user/board-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 
@@ -32,7 +33,8 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

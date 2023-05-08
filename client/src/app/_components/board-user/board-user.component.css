@@ -45,7 +45,7 @@ input.invalid {
 }
 
 button {
-    background-color: #454545;
+    background-color: #44b05f;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -53,9 +53,29 @@ button {
     font-family: Raleway;
     cursor: pointer
 }
+ .cbutton{
+    background-color: red;
+    cursor: pointer
+
+ }
 
 button:hover {
     opacity: 0.8
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #60d0a5;
+    border-color: #60d0a5;
+}
+.cbtn-primary:hover {
+    color: #fff;
+    background-color:#da5d5d;
+    border-color: #da5d5d;
+}
+
+.error > label{
+    color: red;
 }
 
 button:focus{
