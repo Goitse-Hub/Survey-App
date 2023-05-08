@@ -1,0 +1,10 @@
+.heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+.heading h2{
+    font-size: 3rem;
+}
