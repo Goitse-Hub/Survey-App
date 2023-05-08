@@ -83,19 +83,18 @@
 
 
 
-<div class="bg-white min-h-screen flex flex-col">
-  <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-      <div class="bg-slate-200 px-6 py-8 rounded shadow-md text-black w-full">
-          
+<div class="bg-white min-h-screen flex flex-col" >
 
 <form
-
+       
       *ngIf="!isLoggedIn"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
       novalidate
     >
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div class="bg-slate-200 px-6 py-8 rounded shadow-md text-black w-full">
     <h1 class="mb-8 text-3xl text-center">Welcome Back</h1>
     <div class="form-group">
       <label for="username">Username</label>
@@ -167,15 +166,24 @@
           Register
       </a>.
   </div> -->
-  </form>
 
+      </div>
+    </div>
+    <div class="text-grey-dark mt-6 text-black" id="cent" >
+      Do not have an account? 
+      <a class="no-underline border-b border-blue text-red-600" href="../register/">
+          Register
+      </a>.
+      </div>
+  
+
+  </form>
+  <div class="alert alert-success" *ngIf="isLoggedIn" id="log-suc">
+    Logged in as {{ roles }}.
+  </div>
+ 
 </div>
 
-<div class="text-grey-dark mt-6 text-black"  >
-  Do not have an account? 
-  <a class="no-underline border-b border-blue text-red-600" t  href="../register/">
-      Register
-  </a>.
+
 
     
-</div>
