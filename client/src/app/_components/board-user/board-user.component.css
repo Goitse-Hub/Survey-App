@@ -54,7 +54,7 @@ button {
     cursor: pointer
 }
  .cbutton{
-    background-color: red;
+    background-color: red !important;
     cursor: pointer
 
  }

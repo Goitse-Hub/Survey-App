@@ -8,7 +8,7 @@ import { SurveyService } from 'src/app/_services/survey.service';
   templateUrl: './board-user.component.html',
   styleUrls: ['./board-user.component.css']
 })
-export class Survey {
+export class BoardUserComponent {
   surveyService: any;
   addForm: any;
   router: any;

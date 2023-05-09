@@ -28,6 +28,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
+
   ],
   imports: [
     BrowserModule,
