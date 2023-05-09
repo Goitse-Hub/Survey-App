@@ -1,13 +1,4 @@
-.sharebtn{
-    border: 0;
-    
-    background-color: white;
-}
-.menu{
-    border: none;
-    background-color: white;
 
-}
 .optionsContainer{
     display: flex;
 }
@@ -17,7 +8,7 @@
 }
 
 .navbar{
-background-color: antiquewhite;
+background-color: rgb(202, 200, 200);
 }
 .navbar-name{
     font-size: larger;
