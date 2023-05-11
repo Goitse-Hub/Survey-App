@@ -9,6 +9,7 @@ import { BoardUserComponent } from './_components/board-user/board-user.componen
 import { LoginComponent } from './_components/login/login.component';
 import { ProfileComponent } from './_components/profile/profile.component';
 import { RegisterComponent } from './_components/register/register.component';
+import { SurveysComponent } from './_components/surveys/surveys.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'surveys', component: SurveysComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
