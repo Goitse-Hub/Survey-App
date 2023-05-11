@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { SurveyService } from 'src/app/_services/survey.service';
-// import { FormGroup, FormControl } from '@angular/forms';
-
 
 @Component({
-  selector: 'app-board-user',
-  templateUrl: './board-user.component.html',
-  styleUrls: ['./board-user.component.css']
+  selector: 'app-surveys',
+  templateUrl: './surveys.component.html',
+  styleUrls: ['./surveys.component.css']
 })
-export class BoardUserComponent {
+export class SurveysComponent {
   surveyService: any;
   addForm: any;
   router: any;
