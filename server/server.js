@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+//import databse 
 const dbConfig = require("./app/config/dbconfig")
 const app = express();
 
@@ -29,9 +30,13 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-const db = require("./app/models");
-const Role = db.role;
+//This Will Open The Mongoose Connection To MongoDB Database
 
+//This will Retrieve User Roles And User Schema
+const db = require("./app/models");
+const Role = db.role; // Assigns Roles In  To Role
+
+// Connect To MongoDb
 db.mongoose
 .connect(dbConfig.url, {
     useNewUrlParser: true,
@@ -46,9 +51,11 @@ db.mongoose
     process.exit();
   });
 
-  function initial() {
+  //On Initial Connection User Roles Will Be Added To MongoDB
+  function initial() { //The initial() Function Will Helps US To Create Three Important Rows In Roles Collection.
     Role.estimatedDocumentCount((err, count) => {
       if (!err && count === 0) {
+        // This Will Add The User Role
         new Role({
           name: "user"
         }).save(err => {
@@ -58,7 +65,8 @@ db.mongoose
   
           console.log("added 'user' to roles collection");
         });
-  
+        
+        // This Will Add The Moderator Role
         new Role({
           name: "moderator"
         }).save(err => {
@@ -68,7 +76,8 @@ db.mongoose
   
           console.log("added 'moderator' to roles collection");
         });
-  
+        
+        // This Will Add The Admin Role
         new Role({
           name: "admin"
         }).save(err => {

@@ -32,3 +32,35 @@
     margin-left: 1rem;
 
 }
+
+
+.head-title h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.head-title h3{
+    text-align: center;
+    font-size: 1.5rem;
+    
+}
+
+img{
+    height: 20rem;
+}
+
+.cards{
+    margin-bottom: 4rem;
+}
+
+button{
+    transition: 0.3s ease-in-out;
+    background-color: rgb(33, 127, 198);
+}
+
+
+button:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}

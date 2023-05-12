@@ -1,3 +1,6 @@
+
+// Secret Key
+//
 module.exports = {
-    secret: "bezkoder-secret-key"
+    secret: "groupc-secret-key"
   };

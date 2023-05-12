@@ -1,9 +1,13 @@
+// Verify A Signup
+// Check For Duplicate Username and Email
+
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
-  // Username
+  
+  // This Will Check If The Username Is Not Already In Use
   User.findOne({
     username: req.body.username
   }).exec((err, user) => {
@@ -17,7 +21,7 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
       return;
     }
 
-    // Email
+    // This Will Check If The Email Is Not Already In Use 
     User.findOne({
       email: req.body.email
     }).exec((err, user) => {
@@ -36,6 +40,7 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
   });
 };
 
+//This Will Check If The Role Exists or Not
 checkRolesExisted = (req, res, next) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
@@ -56,4 +61,5 @@ const verifySignUp = {
   checkRolesExisted
 };
 
+//Export To Index.Js
 module.exports = verifySignUp;
