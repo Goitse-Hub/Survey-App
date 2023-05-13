@@ -16,6 +16,7 @@ import { BoardUserComponent } from './_components/board-user/board-user.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { SurveysComponent } from './_components/surveys/surveys.component';
+import { SurveyModule } from "survey-angular-ui";
 
 
 
@@ -37,7 +38,8 @@ import { SurveysComponent } from './_components/surveys/surveys.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SurveyModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
