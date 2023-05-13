@@ -16,6 +16,11 @@ import { BoardUserComponent } from './_components/board-user/board-user.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { SurveysComponent } from './_components/surveys/surveys.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './_components/footer/footer.component';
+import { TakesurveyComponent } from './_components/takesurvey/takesurvey.component';
+
 
 
 
@@ -30,6 +35,8 @@ import { SurveysComponent } from './_components/surveys/surveys.component';
     BoardModeratorComponent,
     BoardUserComponent,
     SurveysComponent,
+    FooterComponent,
+    TakesurveyComponent,
   
   ],
   imports: [
@@ -37,7 +44,9 @@ import { SurveysComponent } from './_components/surveys/surveys.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

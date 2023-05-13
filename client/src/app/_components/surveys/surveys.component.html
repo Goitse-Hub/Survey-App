@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-20" style="padding-top: 2.5rem;">
     <div class="row d-flex justify-content-center align-items-center">
        
         <div class="col-md-8">
@@ -216,16 +216,18 @@
                               <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> 
                               <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div> -->
                               <div class="text-end">
-                                <button type="button" class="btn btn-primary hover:bg-green-600 card-actions mr-2 justify-end">Submit</button>
+                                <button type="button" class="btn btn-primary hover:bg-green-600 card-actions mr-2 justify-end" (click)="opensweetalert()">Submit</button>
                                   <button type="button" class="btn btn-primary bg-red-600 cbutton cbtn-primary:hover
-                                  card-actions justify-end ">Cancel</button>
+                                  card-actions justify-end " routerLink="/user">Cancel</button>
                                
                                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
                                     <h3>Thank you for your feedback!</h3> <span>Thanks for your valuable information. It helps us to improve our services!</span>
                                 </div>
                               </div>
                         </div>
+                       
                     </form>
+                    
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ Survey: any;
     public fb: FormBuilder,
         public SurveyService: SurveyService)
    {}
-
+    
   onSubmit() {
     this.surveyService.save(this.addForm.value)
       .subscribe( (data: any) => {
@@ -28,4 +28,6 @@ Survey: any;
         this.msg = 'Thank you for your feedback';
       });
   }
+
+ 
 }

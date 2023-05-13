@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" >
   <nav class="navbar navbar-expand navbar-dark bg-slate-400">
     <a href="#" class="navbar-brand">QuickSurveys 🚀</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
@@ -28,9 +28,10 @@
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
+      <li class="nav-item" id="flex-icon">
+        <img id="profile-icon" src="https://img.icons8.com/?size=512&id=20ZtEsGc3PBz&format=png">
         <a href="/profile" class="nav-link" routerLink="profile">{{
-          username
+          username | uppercase
         }}</a>
       </li>
       <li class="nav-item">
@@ -43,3 +44,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+<app-footer></app-footer>

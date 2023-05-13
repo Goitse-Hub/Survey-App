@@ -5,6 +5,7 @@ img{
 .cards{
     margin-bottom: 4rem;
     margin-top: 2rem;
+    
 }
 
 button{
@@ -24,4 +25,8 @@ button:hover{
     text-align: center;
     margin-bottom: 3rem;
     margin-top: 1.5rem;
+}
+
+#cardfull{
+    height: 40rem;
 }

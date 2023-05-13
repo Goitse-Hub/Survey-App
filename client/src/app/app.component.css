@@ -1,0 +1,16 @@
+.navbar{
+    height: 5rem;
+    font-size: large;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: -5rem;
+}
+
+#profile-icon{
+    width: 2.5rem;
+
+}
+
+#flex-icon{
+    display: flex;
+}

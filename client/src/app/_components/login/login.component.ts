@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 // Login Component Calls TokenStorageService Methods To Check The LoggedIn Status And Save Token And User Info To Session Storage.
 
@@ -20,7 +21,7 @@ export class LoginComponent {
   roles: string[] = [];
 username: any;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -40,11 +41,17 @@ username: any;
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        //alert("Login Successful")
         this.reloadPage();
+        this.toastr.success("Login Successful")
+        
+       window.location.replace("/user")
+        
       },
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        this.toastr.error("Login Failed, Try Again")
       }
    });
   }

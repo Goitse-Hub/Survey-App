@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit{
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -29,10 +30,15 @@ export class RegisterComponent implements OnInit{
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        // this.reloadPage();
+        this.toastr.success("Registration Was Successful")
+        
+        // window.location.replace("/login")
       },
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
+        this.toastr.error("Registration Failed, Try Again")
       }
     });
   }

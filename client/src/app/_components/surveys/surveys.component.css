@@ -1,5 +1,6 @@
 body {
-    background: #eee
+    background: #eee;
+   
 }
 
 
@@ -137,5 +138,6 @@ button:focus{
 }
 
 .container{
+    
     margin-bottom: 3rem;
 }
