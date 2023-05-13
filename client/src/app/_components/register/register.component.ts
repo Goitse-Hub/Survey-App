@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,7 @@ export class RegisterComponent implements OnInit{
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private toastr: ToastrService) { }
+  constructor(private authService: AuthService, private toastr: ToastrService, public _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +36,17 @@ export class RegisterComponent implements OnInit{
         this.toastr.success("Registration Was Successful")
         
         // window.location.replace("/login")
+        Swal.fire({
+          title: 'Registration Was Successful',
+           text: 'please login!',
+          icon: 'success',
+          confirmButtonText: 'Login',
+        }).then((result)=>{
+          if (result.value){
+            this._router.navigate(["/login"])
+            
+          }})
+         
       },
       error: (err) => {
         this.errorMessage = err.error.message;
