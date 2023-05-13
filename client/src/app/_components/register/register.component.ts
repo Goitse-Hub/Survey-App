@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit{
 
   onSubmit(): void {
     const { username, email, password } = this.form;
-
+    //This Method That Returns An Observable Object (authService.register())
     this.authService.register(username, email, password).subscribe({
       next: (data) => {
         console.log(data);

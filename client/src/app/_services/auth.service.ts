@@ -1,6 +1,10 @@
+// This Service Will Sends Signup And Login HTTP POST Requests To Backend.
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+// auth.service Will Use Angular HttpClient ($http service) To Make Authentication Requests.
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
@@ -21,7 +25,8 @@ export class AuthService {
       password
     }, httpOptions);
   }
-
+  //This Is Binded To Register Component
+  //It Has Subscribed To The Observable
   register(username: string, email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signup', {
       username,

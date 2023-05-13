@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// We Will Use user.service To Get Access To Publoc And Protected Resources From API
+
 const API_URL = 'http://localhost:8080/api/test/';
 
 
