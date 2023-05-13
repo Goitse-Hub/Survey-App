@@ -1,29 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { SurveyService } from 'src/app/_services/survey.service';
+// import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-surveys',
+  selector: 'app-board-user',
   templateUrl: './surveys.component.html',
   styleUrls: ['./surveys.component.css']
 })
-export class SurveysComponent {
-  surveyService: any;
-  addForm: any;
-  router: any;
-  msg!: string; 
-Survey: any;
+export class SurveysComponent implements OnInit {
+  surveys:any;
 
   constructor(
     public fb: FormBuilder,
-        public SurveyService: SurveyService)
+        public surveyService: SurveyService, private router:Router)
    {}
 
-  onSubmit() {
-    this.surveyService.save(this.addForm.value)
-      .subscribe( (data: any) => {
-        this.router.navigate(['list-user']);
-        this.msg = 'Thank you for your feedback';
-      });
+   ngOnInit(){
+      this.onGetSurveys();
+   }
+
+  onTakeSurvey(title:any) {
+    this.router.navigate(['survey/', title]);
+  }
+
+  onGetSurveys(): void {
+
+    this.surveyService.getSurveys().subscribe({
+      next: (data:any) => {
+        this.surveys = data;
+      },
+      error: (err:any) => {
+        // this.errorMessage = err.error.message;
+        // this.isLoginFailed = true;
+      }
+   });
   }
 }

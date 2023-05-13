@@ -10,7 +10,7 @@ import { LoginComponent } from './_components/login/login.component';
 import { ProfileComponent } from './_components/profile/profile.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { SurveysComponent } from './_components/surveys/surveys.component';
-
+import { SurveyComponent } from './_components/survey/survey.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'surveys', component: SurveysComponent },
+  { path: 'survey/:title', component: SurveyComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

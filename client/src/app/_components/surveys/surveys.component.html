@@ -1,233 +1,28 @@
-<div class="container mt-5">
-    <div class="row d-flex justify-content-center align-items-center">
-       
-        <div class="col-md-8">
-            <h1 id="register " >Survey Form</h1>
-            <div class="card w-100 bg-base-100 shadow-xl ">
-                
-                <div class="card-body bg-slate-200">
-                    <form [formGroup]="Survey" ngSubmit="onSubmit()" id="regForm">
-                        <p class="fw-bold"></p>
-                        <br>
-                        <p class="fw-bold mb-8">How satisfaction are your with your working environment?</p>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                            <label class="form-check-label" for="radioExample1">
-                                Very satisfied
-                            </label>
-                          </div>
-                          <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                            <label class="form-check-label" for="radioExample1">
-                                Satisfied
-                            </label>
-                          </div>
-                          <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                            <label class="form-check-label" for="radioExample1">
-                              Neutral
-                            </label>
-                          </div>
-                          <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                            <label class="form-check-label" for="radioExample2">
-                                Not satisfied
-                            </label>
-                          </div>
-                          <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-                            <label class="form-check-label" for="radioExample3">
-                            Very dissatisfied
-                            </label>
-                          </div>
-                          <br>
-                          
-                          <br>
-                          <p class="fw-bold mb-8">How happy are your with team?</p>
-                          <div class="form-check mb-2">
-                              <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                              <label class="form-check-label" for="radioExample1">
-                                Very Satisfied
-                              </label>
-                            </div>
-                            <div class="form-check mb-2">
-                              <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                              <label class="form-check-label" for="radioExample2">
-                                Satisfied
-                              </label>
-                            </div>
-                            <div class="form-check mb-2">
-                              <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-                              <label class="form-check-label" for="radioExample3">
-                                Neutral
-                              </label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                <label class="form-check-label" for="radioExample1">
-                                  Not satisfied
-                                </label>
-                              </div>
-                              <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                <label class="form-check-label" for="radioExample1">
-                                    Very dissatisfied
-                                </label>
-                              </div>
-                            <br>
-                            <p class="fw-bold mb-8">Are your team leaders helpful?</p>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Always
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                        Very Often 
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Sometimes
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                                    <label class="form-check-label" for="radioExample2">
-                                        Rarely
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-                                    <label class="form-check-label" for="radioExample3">
-                                      Never
-                                    </label>
-                                  </div>
-                                  <br>
-                             
-                              
-                              <br>
-                              <p class="fw-bold mb-8">Are you satifsfied with your lunch break?</p>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Very satisfied
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Satisfied
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                    Neutral
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                                    <label class="form-check-label" for="radioExample2">
-                                        Not satisfied
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-                                    <label class="form-check-label" for="radioExample3">
-                                      Dissatisfied
-                                    </label>
-                                  </div>
-                                  <br>
-                                <p class="fw-bold mb-8">On a scale of (1-5) would you recommend someone to apply to Digital Academy?</p>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      1
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      2
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      3
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                                    <label class="form-check-label" for="radioExample2">
-                                      4
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-                                    <label class="form-check-label" for="radioExample3">
-                                      5
-                                    </label>
-                                  </div>
-                                  <br>
-                                  <p class="fw-bold mb-8">How satisfied are you with our product?</p>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Option 1
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Option 2
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                    <label class="form-check-label" for="radioExample1">
-                                      Option 3
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                                    <label class="form-check-label" for="radioExample2">
-                                      Option 4
-                                    </label>
-                                  </div>
-                                  <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-                                    <label class="form-check-label" for="radioExample3">
-                                      Option 5
-                                    </label>
-                                  </div>
-                                  <br>
-                            
-                                
+<div class="heading">
+    <h1>Select A Survey</h1>
+</div>
 
-                    
-                       
-                        <div style="overflow:auto;" id="nextprevious">
-                            <!-- <div style="float:right;">
-                              <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> 
-                              <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div> -->
-                              <div class="text-end">
-                                <button type="button" class="btn btn-primary hover:bg-green-600 card-actions mr-2 justify-end">Submit</button>
-                                  <button type="button" class="btn btn-primary bg-red-600 cbutton cbtn-primary:hover
-                                  card-actions justify-end ">Cancel</button>
-                               
-                                <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
-                                    <h3>Thank you for your feedback!</h3> <span>Thanks for your valuable information. It helps us to improve our services!</span>
-                                </div>
-                              </div>
-                        </div>
-                    </form>
+<div class="cards">
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+          <div *ngFor="let survey of surveys" class="col-md-4" style="padding-bottom: 20px">
+            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <img class="w-full" src="{{survey.imageurl}}" alt="Sunset in the mountains">
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">{{survey.title}}</div>
+                  <p class="text-gray-700 text-base">
+                    {{survey.description}}
+                  </p>
                 </div>
-            </div>
+                <button type="button" (click)="onTakeSurvey(survey.title)" class="btn btn-primary" >Take Survey</button>
+                <div class="px-6 pt-4 pb-2">
+                  <span *ngFor="let tag of survey.hashTags" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{tag}}</span>
+                </div>
+              </div>
+        
+          </div>
         </div>
     </div>
+
 </div>

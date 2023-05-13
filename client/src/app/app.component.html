@@ -12,8 +12,8 @@
         <a href="/mod" class="nav-link" routerLink="mod">Moderator </a>
       </li>
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user"
-          >User</a
+        <a href="/surveys" class="nav-link" *ngIf="isLoggedIn" routerLink="surveys"
+          >Surveys</a
         >
       </li>
     </ul>
@@ -40,7 +40,6 @@
   </nav>
 
   <div class="container">
-    <survey [model]="surveyModel"></survey>
     <router-outlet></router-outlet>
   </div>
 </div>

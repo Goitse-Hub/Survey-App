@@ -25,8 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/survey-core/defaultV2.min.css",
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -88,8 +87,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/survey-core/defaultV2.min.css",
+              "src/styles.css"
             ],
             "scripts": []
           }
