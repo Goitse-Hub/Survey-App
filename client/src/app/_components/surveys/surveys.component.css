@@ -1,6 +1,153 @@
-body {
+/* body {
     background: #eee;
    
+} */
+
+
+/* Not importtant down */
+/* #register{
+
+  color: #6A1B9A;
+} */
+/* Not importtant up */
+
+/* h1 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2rem;
+    margin-bottom: 10px;
+
+} */
+
+/* Not importtant down */
+ /* input {
+     padding: 10px;
+     width: 100%;
+     font-size: 17px;
+     font-family: Raleway;
+     border: 1px solid #aaaaaa;
+     border-radius: 10px;
+     -webkit-appearance: none;
+ }
+ */
+/* Not importtant up */
+
+
+/* 
+.tab input:focus{
+
+  border:1px solid #454545;
+  outline: none;
+}
+
+input.invalid {
+ 
+    border:1px solid #e03a0666;
+}
+
+.tab {
+    display: none
+}
+
+button {
+    background-color: #44b05f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer
+}
+ .cbutton{
+    background-color: red !important;
+    cursor: pointer
+
+ }
+
+button:hover {
+    opacity: 0.8
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #60d0a5;
+    border-color: #60d0a5;
+}
+.cbtn-primary:hover {
+    color: #fff;
+    background-color:#da5d5d;
+    border-color: #da5d5d;
+}
+
+.error > label{
+    color: red;
+}
+
+button:focus{
+
+  outline: none !important;
+}
+
+#prevBtn {
+    background-color: #bbbbbb
+}
+
+
+.all-steps{
+      text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.step {
+       height: 40px;
+    width: 40px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: #454545;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1
+}
+
+
+.step.finish {
+   color: #fff;
+   background: #454545;
+   opacity: 1;
+
+}
+
+
+
+.all-steps {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.thanks-message {
+    display: none
+}
+
+.container{
+    
+    margin-bottom: 3rem;
+} */
+
+body {
+    background: #eee
 }
 
 
@@ -136,8 +283,34 @@ button:focus{
 .thanks-message {
     display: none
 }
+img{
+    height: 20rem;
+}
 
-.container{
-    
+.cards{
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+button{
+    transition: 0.3s ease-in-out;
+    background-color: rgb(33, 127, 198);
+}
+
+
+button:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.heading h1{
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
     margin-bottom: 3rem;
+    margin-top: 1.5rem;
+}
+
+.inside{
+    margin-top: 6rem;
 }

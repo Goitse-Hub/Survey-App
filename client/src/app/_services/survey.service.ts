@@ -1,9 +1,28 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+const API_URL = 'http://localhost:8080/api/survey';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+@Injectable()
 export class SurveyService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getSurveys(): Observable<any> {
+    return this.http.get(API_URL+'template/', { responseType: 'json' });
+  }
+
+  getByTitle(title:any): Observable<any> {
+    return this.http.get(API_URL+'template/'+title, { responseType: 'json' });
+  }
+
+  saveSurvey(survey:any): Observable<any> {
+    console.log(survey, 'on save');
+    return this.http.post(API_URL, survey);
+  }
 }

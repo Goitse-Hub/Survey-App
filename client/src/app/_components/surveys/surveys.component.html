@@ -1,4 +1,4 @@
-<div class="container mt-20" style="padding-top: 2.5rem;">
+<!-- <div class="container mt-20" style="padding-top: 2.5rem;">
     <div class="row d-flex justify-content-center align-items-center">
        
         <div class="col-md-8">
@@ -209,13 +209,13 @@
                             
                                 
 
-                    
+                     -->
                        
-                        <div style="overflow:auto;" id="nextprevious">
+                        <!-- <div style="overflow:auto;" id="nextprevious"> -->
                             <!-- <div style="float:right;">
                               <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> 
                               <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div> -->
-                              <div class="text-end">
+                              <!-- <div class="text-end">
                                 <button type="button" class="btn btn-primary hover:bg-green-600 card-actions mr-2 justify-end" (click)="opensweetalert()">Submit</button>
                                   <button type="button" class="btn btn-primary bg-red-600 cbutton cbtn-primary:hover
                                   card-actions justify-end " routerLink="/user">Cancel</button>
@@ -232,4 +232,36 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<!-- Neo -->
+<div class="inside">
+<div class="heading">
+  <h1>Select A Survey</h1>
+</div>
+
+<div class="cards">
+
+  <div class="container text-center">
+      <div class="row align-items-start">
+        <div *ngFor="let survey of surveys" class="col-md-4" style="padding-bottom: 20px">
+          <div class="max-w-sm rounded overflow-hidden shadow-lg">
+              <img class="w-full" src="{{survey.imageurl}}" alt="Sunset in the mountains">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">{{survey.title}}</div>
+                <p class="text-gray-700 text-base">
+                  {{survey.description}}
+                </p>
+              </div>
+              <button type="button" (click)="onTakeSurvey(survey.title)" class="btn btn-primary" >Take Survey</button>
+              <div class="px-6 pt-4 pb-2">
+                <span *ngFor="let tag of survey.hashTags" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{tag}}</span>
+              </div>
+            </div>
+      
+        </div>
+      </div>
+  </div>
+
+</div>
 </div>

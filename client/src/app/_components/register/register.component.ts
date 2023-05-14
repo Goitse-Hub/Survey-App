@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit{
         // window.location.replace("/login")
         Swal.fire({
           title: 'Registration Was Successful',
-           text: 'please login!',
+           text: 'You can now login!',
           icon: 'success',
           confirmButtonText: 'Login',
         }).then((result)=>{

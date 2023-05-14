@@ -45,7 +45,7 @@ username: any;
         this.reloadPage();
         this.toastr.success("Login Successful")
         
-       window.location.replace("/user")
+       window.location.replace("/surveys")
         
       },
       error: (err) => {

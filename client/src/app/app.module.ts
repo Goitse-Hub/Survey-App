@@ -20,6 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './_components/footer/footer.component';
 import { TakesurveyComponent } from './_components/takesurvey/takesurvey.component';
+import { RouterModule } from '@angular/router';
+import { SurveyService } from './_services/survey.service';
 
 
 
@@ -46,9 +48,11 @@ import { TakesurveyComponent } from './_components/takesurvey/takesurvey.compone
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    RouterModule,
+
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, SurveyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 
+const SURVEY_ID = 0;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;

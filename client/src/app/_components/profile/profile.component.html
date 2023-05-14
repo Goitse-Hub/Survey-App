@@ -7,24 +7,24 @@
       </div>
       
       <h3>
-        <strong>{{ currentUser.username }}</strong> Profile
+        <b>Username: </b> {{ currentUser.username | uppercase }}
       </h3>
     </header>
-    <p>
+    <!-- <p>
       <strong>Token:</strong>
       {{ currentUser.accessToken.substring(0, 20) }} ...
       {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-    </p>
+    </p> -->
     <p>
-      <strong>Email:</strong>
+      <strong>Email Address:</strong>
       {{ currentUser.email }}
     </p>
-    <strong>Roles:</strong>
+    <!-- <strong>Roles:</strong>
     <ul>
       <li *ngFor="let role of currentUser.roles">
         {{ role }}
       </li>
-    </ul>
+    </ul> -->
   </div>
   
   <ng-template #loggedOut>
