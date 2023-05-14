@@ -1,0 +1,33 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+    <header >
+
+      <div class="heading">
+        <img src="https://surveyjs.io/Content/Images/V2/dashboard-page/02-Dashboard.png" width="50rem">
+        <h2>DASHBOARD</h2>
+      </div>
+      
+      <h3>
+        <strong>{{ currentUser.username }}</strong> Profile
+      </h3>
+    </header>
+    <p>
+      <strong>Token:</strong>
+      {{ currentUser.accessToken.substring(0, 20) }} ...
+      {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+    </p>
+    <p>
+      <strong>Email:</strong>
+      {{ currentUser.email }}
+    </p>
+    <strong>Roles:</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>
+  

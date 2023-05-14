@@ -1,0 +1,32 @@
+img{
+    height: 20rem;
+}
+
+.cards{
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+    
+}
+
+button{
+    transition: 0.3s ease-in-out;
+    background-color: rgb(33, 127, 198);
+}
+
+
+button:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.heading h1{
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 1.5rem;
+}
+
+#cardfull{
+    height: 40rem;
+}
