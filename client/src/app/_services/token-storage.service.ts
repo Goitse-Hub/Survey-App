@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 
+// TokenStorageService Will Manage Token And User Information (Username, Email, Roles) 
+// Inside The Browser’s Session Storage. 
+// For Logout, We Only Need To Clear This Session Storage.
+
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 

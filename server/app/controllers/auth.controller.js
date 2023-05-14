@@ -107,7 +107,7 @@ exports.signin = (req, res) => {
       var authorities = [];
       // After Login This Will Display The Role the User Is Logged In As
       for (let i = 0; i < user.roles.length; i++) {
-        authorities.push("hello Boss I'm here" + user.roles[i].name.toUpperCase());
+        authorities.push(user.roles[i].name.toUpperCase());
       }
       res.status(200).send({
         id: user._id,

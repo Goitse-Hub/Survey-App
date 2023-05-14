@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
 
-
+// Login Component Calls TokenStorageService Methods To Check The LoggedIn Status And Save Token And User Info To Session Storage.
 
 @Component({
   selector: 'app-login',
