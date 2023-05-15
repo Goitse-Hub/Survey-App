@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../_services/token-storage.service';
 
+//new
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,4 +17,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
   }
+  numList: any[]=[];
+
+addnumber() {
+  
+
+}
 }

@@ -10,9 +10,15 @@
           <p class="lead">Create and take surveys with ease.</p>
           <hr class="my-4">
           <p class="info">Get started by creating a new survey or taking an existing one.</p>
-          <div class="survey-btn" >
+          <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <div class="survey-btn" >
               <!-- <a class="btn btn-lg btn1" href="#" role="button" id="create">Create Survey</a> -->
               <a class="btn btn-secondary btn-lg btn2" style="background-color: #4b9a9e; border-color: #4b9a9e;" href="#" role="button" id="take" routerLink="/login">Take Survey</a>
+          </div>
+          </ul>
+          <div class="survey-btn" >
+              <!-- <a class="btn btn-lg btn1" href="#" role="button" id="create">Create Survey</a> -->
+              <!-- <a class="btn btn-secondary btn-lg btn2" style="background-color: #4b9a9e; border-color: #4b9a9e;" href="#" role="button" id="take" routerLink="/login">Take Survey</a> -->
           </div>
       </div>
   </div>
@@ -37,7 +43,12 @@
                     Health surveys generally include measures of risk factors, health behaviors, and non-health determinants or correlates of health such as socioeconomic status.
                   </p>
                 </div>
-                <button type="button" class="btn btn-primary" routerLink="/register">Register</button>
+                <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+                  <div class="survey-btn" >
+                    <!-- <a class="btn btn-lg btn1" href="#" role="button" id="create">Create Survey</a> -->
+                    <button type="button" class="btn btn-primary" routerLink="/register">Register</button>
+                </div>
+                </ul>
                 <div class="px-6 pt-4 pb-2">
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#healthy</span>
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#gym</span>
@@ -55,7 +66,12 @@
                     Collect employee engagement data, create conversational employee surveys, and improve employee productivity with QuickSurveys Employee Engagement Tool.
                   </p>
                 </div>
-                <button type="button" class="btn btn-primary" routerLink="/register">Register</button>
+                <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+                  <div class="survey-btn" >
+                    <!-- <a class="btn btn-lg btn1" href="#" role="button" id="create">Create Survey</a> -->
+                    <button type="button" class="btn btn-primary" routerLink="/register">Register</button>
+                </div>
+                </ul>
                 <div class="px-6 pt-4 pb-2">
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#workhero</span>
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#nailedit</span>
@@ -73,7 +89,13 @@
                     Use the right types of questions in your customer service survey to ensure you achieve excellent customer service and high customer satisfaction.
                   </p>
                 </div>
-                <button type="button" class="btn btn-primary" routerLink="/register">Register</button>
+                <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+                  <div class="survey-btn" >
+                    <!-- <a class="btn btn-lg btn1" href="#" role="button" id="create">Create Survey</a> -->
+                    <button type="button" class="btn btn-primary" routerLink="/register">Register</button>
+                </div>
+                </ul>
+                
                 <div class="px-6 pt-4 pb-2">
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#feedback</span>
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#happy</span>

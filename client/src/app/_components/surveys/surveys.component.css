@@ -147,7 +147,10 @@ button:focus{
 } */
 
 body {
-    background: #eee
+    background: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
 }
 
 
@@ -313,4 +316,5 @@ button:hover{
 
 .inside{
     margin-top: 6rem;
+    min-height: 100vh;
 }

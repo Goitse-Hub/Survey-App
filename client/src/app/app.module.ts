@@ -25,7 +25,6 @@ import { SurveyService } from './_services/survey.service';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +48,8 @@ import { SurveyService } from './_services/survey.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    RouterModule,
+    RouterModule
+    
 
   ],
   providers: [authInterceptorProviders, SurveyService],

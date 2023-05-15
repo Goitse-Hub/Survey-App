@@ -13,3 +13,18 @@
     margin-top: 10rem;
     margin-bottom: 50vh;
 }
+
+#email-icon{
+    width: 2rem;
+    display: flex;
+    margin-right: 4px;
+}
+
+.emaiil{
+    display: flex;
+   align-items: center;
+   
+}
+/* .emaiil b{
+    margin-top: 4px;
+} */

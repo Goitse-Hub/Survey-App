@@ -178,4 +178,5 @@ button:focus{
 
   .inside{
     margin-top: 8rem;
+    min-height: 100vh;
   }

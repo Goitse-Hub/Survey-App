@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+
 
 // Home Component Will Use UserService To Get Public Resources From The Backend
 
@@ -10,8 +12,15 @@ import { UserService } from '../../_services/user.service';
 })
 export class HomeComponent implements OnInit {
   content?: string;
+  // new
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username?: string;
 
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.userService.getPublicContent().subscribe({
@@ -22,5 +31,16 @@ export class HomeComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     });
+
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      
+      this.username = user.username;
+    }
+  
   }
 }

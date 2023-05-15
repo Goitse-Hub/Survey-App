@@ -5,9 +5,11 @@
         <img src="https://surveyjs.io/Content/Images/V2/dashboard-page/02-Dashboard.png" width="50rem">
         <h2>DASHBOARD</h2>
       </div>
-      
-      <h3>
-        <b>Username: </b> {{ currentUser.username | uppercase }}
+      <hr>
+      <br>
+      <h3 class="emaiil">
+        <img id="email-icon" src="https://img.icons8.com/?size=512&id=23264&format=png">
+        <b>Username: </b> &nbsp; {{ currentUser.username | uppercase }}
       </h3>
     </header>
     <!-- <p>
@@ -15,8 +17,9 @@
       {{ currentUser.accessToken.substring(0, 20) }} ...
       {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
     </p> -->
-    <p>
-      <strong>Email Address:</strong>
+    <p class="emaiil">
+      <img id="email-icon" src="https://img.icons8.com/?size=512&id=85467&format=png">
+      <b>Email Address: </b>  &nbsp;
       {{ currentUser.email }}
     </p>
     <!-- <strong>Roles:</strong>
@@ -25,6 +28,10 @@
         {{ role }}
       </li>
     </ul> -->
+  </div>
+  
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" (click)="addnumber()">Update Details</button>
   </div>
   
   <ng-template #loggedOut>
