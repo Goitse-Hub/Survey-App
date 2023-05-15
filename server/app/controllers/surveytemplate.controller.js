@@ -1,13 +1,13 @@
 // const Survey = require("./survey.model");
 
-const Survey = require("../models/survey.model");
+const SurveyTemplate = require("../models/surveytemplate.model");
 
 // Create and Save a new Survey
 exports.create = (req, res) => {
   const surveyData = req.body;
 
   // Create a Post
-  const survey = new Survey(surveyData);
+  const survey = new SurveyTemplate(surveyData);
 
   // Save Post in the database
   survey
@@ -25,7 +25,7 @@ exports.create = (req, res) => {
 
 // Find all surveys
 exports.findAll = (req, res) => {
-  Survey.find({})
+  SurveyTemplate.find({})
     .then((data) => {
       res.send(data);
     })
@@ -39,7 +39,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Survey.findById(id)
+  SurveyTemplate.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found Survey with id " + id });
@@ -54,7 +54,7 @@ exports.findOne = (req, res) => {
 
 exports.findByTitle = (req, res) => {
   const title = req.params.title;
-  Survey.find({ title: title })
+  SurveyTemplate.find({ title: title })
   .then(data => {
     res.send(data);
   })
@@ -75,7 +75,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Survey.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  SurveyTemplate.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -99,7 +99,7 @@ exports.patch = (req, res) => {
 
   const id = req.params.id;
 
-  Survey.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  SurveyTemplate.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -117,7 +117,7 @@ exports.patch = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Survey.findByIdAndRemove(id)
+  SurveyTemplate.findByIdAndRemove(id)
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -138,7 +138,7 @@ exports.delete = (req, res) => {
 
 // Delete all Surveys from the database.
 exports.deleteAll = (req, res) => {
-  Survey.deleteMany({})
+  SurveyTemplate.deleteMany({})
   .then(data => {
     res.send({
       message: `${data.deletedCount} Surveys were deleted successfully!`
