@@ -1,0 +1,51 @@
+
+<div class="container">
+    <h1 id="con-title">VIEW USERS</h1>
+    <div class="card-table">
+      <div class="cart-product w-100">
+        <table class="table table-responsive" id="tble">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Username</th>
+              <th>Email Address</th>
+              <!-- <th>Role</th> -->
+              <!-- <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th> -->
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <!-- <td>{{user.roles}}</td> -->
+              <!-- <td>R {{user.title}}</td> -->
+           
+              <td>
+                <button  class="btn btn-danger" id="btn" (click)="onDeleteUser(user._id)">Delete</button>
+              </td>
+            </tr>
+            <!-- <tr>
+              <td colspan="8" id="grantotal"><h4>Total Amount Due: R </h4></td>
+            </tr> -->
+            
+          </tbody>
+          <!-- <hr> -->
+          
+    
+          </table>
+          <div class="last">
+            <button class="btn btn-primary" routerLink="/Products" (click)="openAddEditEmpForm()">Add User</button>
+          
+            <button class="btn btn-danger" >Delete All Users</button>
+            <!-- <button class="btn btn-success">Check Out</button> -->
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  

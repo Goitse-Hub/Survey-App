@@ -20,4 +20,16 @@ module.exports = function(app) {
   );
 
   app.post("/api/auth/signin", controller.signin);
+
+
+  app.put("/api/auth/:id", controller.update);
+
+  app.patch("/api/auth/:id", controller.update);
+
+  app.delete("/api/auth/all", controller.deleteAll);
+
+    // Delete a Survey with id
+  app.delete("/api/auth/:id", controller.delete);
+
+  app.get("/api/auth/all", controller.findAll);
 };

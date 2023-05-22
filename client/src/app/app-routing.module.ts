@@ -11,6 +11,7 @@ import { ProfileComponent } from './_components/profile/profile.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { SurveysComponent } from './_components/surveys/surveys.component';
 import { TakesurveyComponent } from './_components/takesurvey/takesurvey.component';
+import { UsersComponent } from './_components/users/users.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'users', component: UsersComponent },
   { path: 'surveys', component: SurveysComponent },
   { path: 'survey/:title', component: TakesurveyComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

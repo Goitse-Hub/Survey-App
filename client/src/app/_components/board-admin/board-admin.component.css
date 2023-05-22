@@ -21,3 +21,15 @@ background-color: rgb(202, 200, 200);
 #create{
     margin-bottom: 5px;
 }
+
+
+.container{
+    margin-top: 8rem;
+}
+
+
+#dash-head{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
