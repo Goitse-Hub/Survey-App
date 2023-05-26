@@ -76,62 +76,46 @@ export class TakesurveyComponent {
   }
 
   onSubmit() {
-    if(this.form.status === "INVALID"){
-      debugger;
-      Swal.fire({
-        title: 'Failed!',
-         text: 'Please Answer All Questions!!!',
-        icon: 'error',
-        confirmButtonText: 'OK',
-        }).then((result)=>{
-        if (result.value){
-          // this.router.navigate(["/user"])
-          //window.location.reload()
-        }
-        
-      }
-      )
-      // alert("Please answer all questions!!!");
+    if (this.form.status === "INVALID") {
+      this.onInvalidFormAlert();
       return;
-    } 
-    Swal.fire({
-      title: 'Wonderful!',
-       text: 'Thank you for your feedback!!!',
-      icon: 'success',
-      confirmButtonText: 'OK',
-      }).then((result)=>{
-      if (result.value){
-        // this.router.navigate(["/user"])
-        this.router.navigate(['surveys']);
-      }
-      
     }
-    )
-    this.form.value["templateid"] = this.surveyItem._id;
-    
-    const survey = this.form.value;
-    const API_URL = 'http://localhost:8080/api/survey';
 
-    const request = new XMLHttpRequest();
-    request.open('POST', API_URL);
-    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    request.addEventListener('load', () => {
-      // Handle "load"
-    });
-    request.addEventListener('error', () => {
-      // Handle "error"
-    });
-    request.send(JSON.stringify(survey.data));
+    this.form.value["templateid"] = this.surveyItem.id;
+
     
-    this.surveyService.saveSurvey(survey.data)
-      .subscribe( (data: any) => {
-       
-       alert('Thank you for your feedback!!!');
-       this.router.navigate(['surveys']);
-      });
+    this.surveyService.saveSurvey(this.form.value)
+      .subscribe((data: any) => {
+        this.onSubmitSuccessAlert();
+      })
   }
 
-  onCancel(){
+  onCancel() {
     this.router.navigate(['surveys']);
+  }
+
+  onSubmitSuccessAlert() {
+    Swal.fire({
+      title: 'Wonderful!',
+      text: 'Thank you for your feedback!!!',
+      icon: 'success',
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(["/surveys"])
+      }
+    })
+  }
+
+  onInvalidFormAlert() {
+    Swal.fire({
+      title: 'Failed!',
+      text: 'Please Answer All Questions!!!',
+      icon: 'error',
+      confirmButtonText: 'OK',
+    }).then((result) => {
+
+    })
+
   }
 }

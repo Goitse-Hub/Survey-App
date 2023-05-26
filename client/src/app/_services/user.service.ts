@@ -37,7 +37,6 @@ export class UserService {
     return this.http.get('http://localhost:8080/api/auth/all', { responseType: 'json' });
   }
 
-
   deleteUser(_id: string): Observable<any> {
     return this.http.delete('http://localhost:8080/api/auth/' + _id, { responseType: 'json' });
   }
@@ -55,5 +54,7 @@ export class UserService {
   updateUser(_id: string, data: any): Observable<any> {
     return this.http.put(`http://localhost:8080/api/auth/${_id}`, data);
   }
+  
+
 
 }

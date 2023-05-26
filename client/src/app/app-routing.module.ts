@@ -13,22 +13,30 @@ import { SurveysComponent } from './_components/surveys/surveys.component';
 import { TakesurveyComponent } from './_components/takesurvey/takesurvey.component';
 import { UsersComponent } from './_components/users/users.component';
 
+//Auth Guards
+
+import { AuthGuard } from './auth/auth.guard'
+import { AuthService } from './_services/auth.service'
+import { CreateSurveyComponent } from './_components/create-survey/create-survey.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent,},
   { path: 'user', component: BoardUserComponent },
-  { path: 'mod', component: BoardModeratorComponent },
-  { path: 'admin', component: BoardAdminComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'surveys', component: SurveysComponent },
-  { path: 'survey/:title', component: TakesurveyComponent },
+  { path: 'mod', component: BoardModeratorComponent, },
+  { path: 'admin', component: BoardAdminComponent, },
+  { path: 'createsurvey', component: CreateSurveyComponent, },
+  { path: 'users', component: UsersComponent,  },
+  { path: 'surveys', component: SurveysComponent, },
+  { path: 'survey/:title', component: TakesurveyComponent, },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthService, AuthGuard],
 })
 export class AppRoutingModule { }

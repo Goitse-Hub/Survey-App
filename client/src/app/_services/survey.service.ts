@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8080/api/survey';
+const URL = 'http://localhost:8080/api/surveytemplate';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -25,4 +26,10 @@ export class SurveyService {
     console.log(survey, 'on save');
     return this.http.post(API_URL, survey);
   }
+
+  addSurvey(body: any){
+    return this.http.post<any>(URL, body)
+  }
+  
+
 }

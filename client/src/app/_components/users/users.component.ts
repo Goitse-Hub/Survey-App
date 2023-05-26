@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/_services/user.service';
@@ -10,6 +10,8 @@ import Swal from 'sweetalert2'
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
+
 export class UsersComponent {
 
   displayedColumns: string[] = [
@@ -27,9 +29,10 @@ export class UsersComponent {
   ];
 
   users: any;
+  numUsers: any;
 
   constructor(private userService: UserService,  private _dialog: MatDialog, public _router: Router){}
-
+  
   ngOnInit(){
     this.onGetUsers();
  }
@@ -40,6 +43,7 @@ export class UsersComponent {
       next: (data:any) => {
         this.users = data;
         this.users.id
+        this.numUsers = this.users.length
       },
       error: (err:any) => {
        
@@ -47,11 +51,14 @@ export class UsersComponent {
    });
 }
 
+totalUsers(){
+   return this.numUsers
+}
 
 onDeleteUser(_id: string): void{
  
   this.userService.deleteUser(_id).subscribe({
-  
+ 
   })
   
   

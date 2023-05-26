@@ -25,7 +25,7 @@ import { SurveyService } from './_services/survey.service';
 
 //new
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from "@angular/material/form-field";
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
@@ -42,6 +42,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
+//Auth Guards
+import { AuthGuard } from './auth/auth.guard'
+import { AuthService } from './_services/auth.service';
+import { UpdateuserComponent } from './_components/updateuser/updateuser.component';
+import { CreateSurveyComponent } from './_components/create-survey/create-survey.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +63,8 @@ import { MatSortModule } from '@angular/material/sort';
     TakesurveyComponent,
     UsersComponent,
     AdduserComponent,
+    UpdateuserComponent,
+    CreateSurveyComponent,
   
   ],
   imports: [
@@ -86,7 +94,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatSortModule
 
   ],
-  providers: [authInterceptorProviders, SurveyService],
+  providers: [authInterceptorProviders, SurveyService, AuthGuard, AuthService, {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

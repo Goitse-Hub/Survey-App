@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
+import { UsersComponent } from '../users/users.component';
 
 @Component({
   selector: 'app-board-admin',
@@ -21,4 +22,7 @@ export class BoardAdminComponent implements OnInit {
       }
     });
   }
+
+
+  
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,6 +9,10 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
+})
+
+@Injectable({
+  providedIn: 'root'
 })
 export class LoginComponent {
   form: any = {
@@ -46,15 +50,24 @@ username: any;
         this.toastr.success("Login Successful")
         
        window.location.replace("/surveys")
+      //return this.isLoggedIn = true
         
       },
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
         this.toastr.error("Login Failed, Try Again")
-      }
+      },
+      
    });
   }
+
+  // isAuthenticated(): boolean{
+  //   if (this.isLoggedIn = true){
+
+  //   }
+  //   return true
+  // }
 
   reloadPage(): void {
     window.location.reload();

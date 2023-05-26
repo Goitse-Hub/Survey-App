@@ -1,18 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CoreService } from 'src/app/_services/core.service';
 import { UserService } from 'src/app/_services/user.service';
 import { AuthService } from '../../_services/auth.service';
-import Swal from 'sweetalert2'
-@Component({
-  selector: 'app-adduser',
-  templateUrl: './adduser.component.html',
-  styleUrls: ['./adduser.component.css']
-})
-export class AdduserComponent implements OnInit {
-  empForm: FormGroup;
+import { CoreService } from 'src/app/_services/core.service';
 
+@Component({
+  selector: 'app-updateuser',
+  templateUrl: './updateuser.component.html',
+  styleUrls: ['./updateuser.component.css']
+})
+export class UpdateuserComponent {
+  empForm: FormGroup;
+  users: any;
   form: any = {
     username: null,
     email: null,
@@ -29,32 +29,23 @@ export class AdduserComponent implements OnInit {
     'Graduate',
     'Post Graduate',
   ];
-
   constructor(
     private _fb: FormBuilder,
     private _coreService: CoreService,
-    private _dialogRef: MatDialogRef<AdduserComponent>,
+    private _dialogRef: MatDialogRef<UpdateuserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private authService: AuthService,
     private userService: UserService
   ) {
     this.empForm = this._fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      education: '',
-      company: '',
-      experience: '',
-      package: '',
+      username: String,
+      email: String,
     });
   }
-  users: any;
+
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
   }
-
   onFormSubmit() {
     
 
@@ -87,33 +78,45 @@ export class AdduserComponent implements OnInit {
 
 //asdasd
 
-  onSubmit(): void {
-    const { username, email, password } = this.form;
-    //This Method That Returns An Observable Object (authService.register())
-    this.authService.register(username, email, password).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.reloadPage();
 
+
+//   : void {
+//     const { username, email } = this.form
+//     this.userService.updateUser(username, email).subscribe({
+//       next: (data) => {
+//         this.users = data;
+//         this.users._id
         
-        // window.location.replace("/login")
+//       },
+//       error: (err:any) => {
        
-         
-      },
-      error: (err) => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
- 
+//       }
+//    });
+// }
+
+
+onUpdateUser(){
+  if (this.empForm.valid) {
+    if (this.data) {
+      this.userService
+        .updateUser(this.data._id, this.empForm.value)
+        .subscribe({
+          next: (val: any) => {
+            this._coreService.openSnackBar('Employee detail updated!');
+            this._dialogRef.close(true);
+            window.location.reload()
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
       }
-    });
-  }
-
-
+    }
+  };
   
-  reloadPage(): void {
+
+
+reloadPage(): void {
     window.location.reload();
   }
-
 }
