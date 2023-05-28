@@ -34,4 +34,14 @@ export class AuthService {
       password
     }, httpOptions);
   }
+
+  requestPasswordReset(data:any): Observable<any> {
+    return this.http.post(AUTH_API + 'requestPasswordReset',data);
+  }
+ 
+  
+  resetPassword(data:any): Observable<any> {
+    return this.http.put(AUTH_API + 'resetPassword', data);
+  }
+
 }

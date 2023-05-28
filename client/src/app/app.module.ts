@@ -46,7 +46,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { AuthGuard } from './auth/auth.guard'
 import { AuthService } from './_services/auth.service';
 import { UpdateuserComponent } from './_components/updateuser/updateuser.component';
-import { CreateSurveyComponent } from './_components/create-survey/create-survey.component'
+import { CreateSurveyComponent } from './_components/create-survey/create-survey.component';
+import { ForgotPasswordComponent } from './_components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './_components/reset-password/reset-password.component'
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { CreateSurveyComponent } from './_components/create-survey/create-survey
     AdduserComponent,
     UpdateuserComponent,
     CreateSurveyComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   
   ],
   imports: [

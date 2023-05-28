@@ -12,7 +12,8 @@ import { RegisterComponent } from './_components/register/register.component';
 import { SurveysComponent } from './_components/surveys/surveys.component';
 import { TakesurveyComponent } from './_components/takesurvey/takesurvey.component';
 import { UsersComponent } from './_components/users/users.component';
-
+import { ForgotPasswordComponent } from './_components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './_components/reset-password/reset-password.component';
 //Auth Guards
 
 import { AuthGuard } from './auth/auth.guard'
@@ -31,6 +32,8 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent,  },
   { path: 'surveys', component: SurveysComponent, },
   { path: 'survey/:title', component: TakesurveyComponent, },
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
+  { path: 'resetPassword/:id', component: ResetPasswordComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -4,7 +4,8 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
-
+const sendEmail = require("../utils/email/sendEmail");
+const clientBaseUrl = 'http://localhost:8081';
 
 // Generate A Token Using Jsonwebtoken
 var jwt = require("jsonwebtoken");
@@ -142,7 +143,7 @@ exports.update = (req, res) => {
         message: "Error updating User with id=" + id
       });
     });
-};
+  };
 
 //Patch
 
@@ -224,4 +225,45 @@ exports.findAll = (req, res) => {
         message: err.message || "Some error occurred while retrieving data.",
       });
     });
+};
+
+//Request PAssword controller
+exports.requestPasswordReset = (req, res) => {
+  User.findOne({ email: req.body.email }).exec((err, user) => {
+   if (err) {
+     res.status(500).send({ message: err });
+     return;
+   }
+   // If Username Doesn't Exist In Database
+   if (!user) {
+     return res.status(404).send({ message: "User Not found." });
+   }
+
+   const link = `${clientBaseUrl}/resetPassword/${user._id}`;
+   let data = {
+     link: link,
+     baseUrl: clientBaseUrl
+ };
+   sendEmail({ to: user.email, subject: "Password Reset Request", name: user.name, data: data, templatePath: "././app/utils/email/templates/requestPasswordReset.html" });
+   return res.send({ link: link });
+ });
+};
+
+exports.resetPassword = (req, res) => {
+
+ const user = User.findById({ userId: req.body.userId });
+ 
+ User.findByIdAndUpdate({ _id: req.body.userId },
+   { $set: { password: req.body.password } },
+   { useFindAndModify: false });
+   
+   let data = {
+     baseUrl: clientBaseUrl
+ };
+
+ sendEmail({ to: user.email, subject: 
+   "Password Reset Successfully"
+   , name: user.name, data: data, 
+ templatePath: "././app/utils/email/templates/passwordResetSuccess.html" });
+ return res.send({ isSuccessful: true });
 };
