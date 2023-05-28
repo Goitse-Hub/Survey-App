@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { SurveyService } from 'src/app/_services/survey.service';
 import { NewSurvey } from './create_survey';
 import { UploadService } from 'src/app/_services/upload.service';
@@ -9,88 +9,80 @@ import { UploadService } from 'src/app/_services/upload.service';
   templateUrl: './create-survey.component.html',
   styleUrls: ['./create-survey.component.css']
 })
+
 export class CreateSurveyComponent implements OnInit {
-  isSubmitted = false;
 
-  newSurvey: NewSurvey[] = [];
-  files: File[] = [];
+  surveyForm: FormGroup;
+  questionGroups!: FormArray; // Add the questionGroups property
+  survey: any;
 
-  types: any = ['radiogroup', 'comment',
-            'rating', 'text'];
- 
- minimun = 10;
-//  form: FormGroup;
-
-  form = this.fb.group({
-    surveyTitle: ["", [Validators.required]],
-   // questions: "[{'name': 'question1', 'titles': '', 'type': '', 'choices': [{'value': , 'text': ''}],}]",
-    title: '',
-    type: ['', [Validators.required]],
-    choices: '',
-    description:"",
-    imageUrl:"",
-    hashtags: "['']",
-
-  });
-  http: any;
-  router: any;
-
-  constructor(private create: SurveyService, private fb: FormBuilder, private uploadService: UploadService) {} 
-
-  ngOnInit() {
-  
-    this.options;
-
-   
-}
-
-onSelect(event:any) {
-  console.log(event);
-  this.files.push(...event.addedFiles);
-}
-
-onRemove(event: any) {
-  console.log(event);
-  this.files.splice(this.files.indexOf(event), 1);
-}
-
-onUpload(){
-  if(!this.files[0]){
-    alert("Can't submit empty file");
+  constructor(private formBuilder: FormBuilder, private surveyService: SurveyService) {
+    this.surveyForm = this.formBuilder.group({
+      title: '',
+      questions: this.formBuilder.array([]),
+      description: ""
+    });
   }
 
-  //upload my image on cloudinary
-  const file_data = this.files[0];
-  const data = new FormData();
-  data.append('imageUrl', file_data);
-  data.append('ml_default','angular_cloudinary');
-  data.append('dbdhrolar', 'Z5nCMDCFGf5PYUimMJHCzVGdtR4');
+  ngOnInit(): void {
+    this.questionGroups = this.getQuestionControls(); // Initialize questionGroups
+  }
+  getQuestionGroup(control: AbstractControl): FormGroup {
+    return control as FormGroup;
+  }
 
-  this.uploadService.uploadImage(data).subscribe((response) => {
-    console.log(response, "cloud");
-});
+  getQuestionControls(): FormArray {
+    return this.surveyForm.get('questions') as FormArray;
+  }
 
-}
+  addQuestion(): void {
+    const questionGroup = this.formBuilder.group({
+      questionText: '',
+      options: this.formBuilder.array([])
+    });
+    this.getQuestionControls().push(questionGroup);
+    this.questionGroups = this.getQuestionControls(); // Update questionGroups
+  }
+
+  removeQuestion(index: number): void {
+    this.getQuestionControls().removeAt(index);
+    this.questionGroups = this.getQuestionControls(); // Update questionGroups
+  }
+
+  getOptionControls(questionGroup: FormGroup): FormArray {
+    return questionGroup.get('options') as FormArray;
+  }
+
+  addOption(questionGroup: FormGroup): void {
+    const optionGroup = this.formBuilder.group({
+      choices: ''
+    });
+    this.getOptionControls(questionGroup).push(optionGroup);
+  }
+
+  removeOption(questionGroup: FormGroup, index: number): void {
+    this.getOptionControls(questionGroup).removeAt(index);
+  }
 
 
-changeOption(e: any) {
-  console.log(e.value)
-  this.form.setValue(e.target.value, {
-    onlySelf: true
-  })
-}
-
-submitForm() {
- 
-  let formData = this.form.value
-  this.create.addSurvey(formData).subscribe(res=>{
-    this.newSurvey = res;
-    console.log(res)
-  })
-  
-} 
- get options() {
-  return this.form.get('type');
-}
-
+  onSubmit() {
+    if (this.surveyForm.invalid) {
+      return;
+    }
+    console.log(this.surveyForm.value)
+    // this.surveyService.createSurvey().subscribe(res => {
+    //   this.survey = res;
+      
+    // })
+    // .subscribe(
+    //   response => {
+    //     // Handle success response
+    //     console.log('Survey created successfully!', response);
+    //   },
+    //   error => {
+    //     // Handle error response
+    //     console.error('Error creating survey:', error);
+    //   }
+    // );
+  }
 }
