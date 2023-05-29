@@ -73,7 +73,7 @@ In the backend directory, run the following command:
 ```
 npm start
 ```
-Open your web browser and visit http://localhost:4200 to access QuickSurveys.
+Open your web browser and visit http://localhost:8081 to access QuickSurveys.
 
 ## Contributing
 We welcome contributions to QuickSurveys! If you would like to contribute, please follow these steps:
