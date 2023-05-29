@@ -70,6 +70,7 @@ export class CreateSurveyComponent implements OnInit {
       return;
     }
     console.log(this.surveyForm.value)
+    window.location.reload()
     // this.surveyService.createSurvey().subscribe(res => {
     //   this.survey = res;
       

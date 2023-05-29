@@ -98,7 +98,7 @@ import { ResetPasswordComponent } from './_components/reset-password/reset-passw
     MatSortModule
 
   ],
-  providers: [authInterceptorProviders, SurveyService, AuthGuard, AuthService, {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}} ],
+  providers: [authInterceptorProviders, SurveyService, AuthGuard, AuthService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
