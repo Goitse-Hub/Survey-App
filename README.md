@@ -37,7 +37,7 @@ cd QuickSurveys
 
 ## Install the required dependencies for the frontend and backend:
 ```
-cd cliet
+cd client
 npm install
 ```
 ```
