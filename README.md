@@ -36,13 +36,14 @@ cd QuickSurveys
 
 
 ## Install the required dependencies for the frontend and backend:
-
+```
 cd cliet
 npm install
-
+```
+```
 cd server
 npm install
-
+```
 ## Set up the MongoDB database:
 
 Install MongoDB and ensure it is running on your machine.
@@ -53,24 +54,25 @@ In the backend directory, create a .env file.
 
 Add the following environment variables to the .env file:
 
-shell
-Copy code
+
+```
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/quicksurveys
+```
 Replace mongodb://localhost:27017/quicksurveys with your MongoDB connection URI if necessary.
 
 ## Start the application:
 
-In the frontend directory, run the following command:
+## In the frontend directory, run the following command:
 
-shell
-Copy code
+```
 ng serve
 In the backend directory, run the following command:
+```
 
-shell
-Copy code
+```
 npm start
+```
 Open your web browser and visit http://localhost:4200 to access QuickSurveys.
 
 ## Contributing
