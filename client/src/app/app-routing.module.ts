@@ -19,6 +19,8 @@ import { ResetPasswordComponent } from './_components/reset-password/reset-passw
 import { AuthGuard } from './auth/auth.guard'
 import { AuthService } from './_services/auth.service'
 import { CreateSurveyComponent } from './_components/create-survey/create-survey.component';
+import { ResultsComponent } from './_components/results/results.component';
+import { CreatepasswordComponent } from './_components/createpassword/createpassword.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,10 +32,12 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent, },
   { path: 'createsurvey', component: CreateSurveyComponent, },
   { path: 'users', component: UsersComponent,  },
+  { path: 'results', component: ResultsComponent,  },
   { path: 'surveys', component: SurveysComponent, },
   { path: 'survey/:title', component: TakesurveyComponent, },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   { path: 'resetPassword/:id', component: ResetPasswordComponent },
+  //{ path: 'createNewPassword/:id', component: CreatepasswordComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

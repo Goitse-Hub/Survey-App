@@ -95,6 +95,7 @@ export class AdduserComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+       
         this.reloadPage();
 
         
@@ -102,15 +103,28 @@ export class AdduserComponent implements OnInit {
        
          
       },
+      
+      
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
  
       }
+      
     });
+    // this.authService.requestNewPassword(this.form.value).subscribe((data: any) => {
+    //   this.onSubmitSuccessAlert();
+    // });
   }
 
-
+  onSubmitSuccessAlert() {
+    Swal.fire({
+      title: 'Email Sent To User',
+      text: 'You have successfully submitted your request',
+      icon: 'success',
+      confirmButtonText: 'OK',
+    })
+  }
   
   reloadPage(): void {
     window.location.reload();

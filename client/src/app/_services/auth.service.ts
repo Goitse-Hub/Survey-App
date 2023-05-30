@@ -41,7 +41,17 @@ export class AuthService {
  
   
   resetPassword(data:any): Observable<any> {
-    return this.http.put(AUTH_API + 'resetPassword', data);
+    return this.http.post(AUTH_API + 'resetPassword', data);
   }
+
+
+  // requestNewPassword(data:any): Observable<any> {
+  //   return this.http.post(AUTH_API + 'requestNewPassword',data);
+  // }
+ 
+  
+  // createNewPassword(data:any): Observable<any> {
+  //   return this.http.post(AUTH_API + 'createNewPassword', data);
+  // }
 
 }

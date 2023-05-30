@@ -21,8 +21,6 @@ module.exports = function(app) {
 
   app.post("/api/auth/signin", controller.signin);
 
-  app.post("/api/auth/requestPasswordReset", controller.requestPasswordReset);
-  app.post("/api/auth/resetPassword", controller.resetPassword);
 
   app.put("/api/auth/:id", controller.update);
 
@@ -34,4 +32,16 @@ module.exports = function(app) {
   app.delete("/api/auth/:id", controller.delete);
 
   app.get("/api/auth/all", controller.findAll);
+  app.post("/api/auth/requestPasswordReset", controller.requestPasswordReset);
+  app.post("/api/auth/resetPassword", controller.resetPassword);
+
+
+//    app.post("/api/auth/requestNewPassword", function(req, res){
+//     controller.requestNewPassword
+// });
+
+// app.post("/api/auth/createNewPassword", function(req, res){
+//   controller.createNewPassword
+// });
+   //app.put("/api/auths/createNewPassword", controller.createNewPassword);
 };

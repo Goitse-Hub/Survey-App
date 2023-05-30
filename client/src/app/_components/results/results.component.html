@@ -1,0 +1,52 @@
+  <div class="container">
+    <h1 id="con-title">VIEW RESULTS</h1>
+    <div class="card-table">
+      <div class="cart-product w-100">
+        <table class="table table-responsive" id="tble">
+            <thead>
+              <tr>
+                <th>Surveys</th>
+                <th>Responses</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Question 1</td>
+                <td>Question 2</td>
+                <td>Question 3</td>
+                <td>Question 4</td>
+                <td>Question 5</td>
+                <td>Question 6</td>
+                <td>Question 7</td>
+                <td>Question 8</td>
+                <td>Question 9</td>
+                <td>Question 10</td>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let survey of surveys; let i = index">
+                <tr id="cent">
+                    <td>{{survey.title}}</td>
+                </tr>
+                <tr >
+                  <td>{{survey.questions}}</td>
+                  <td>{{survey.question1}}</td>
+                  <td>{{survey.question2}}</td>
+                  <td>{{survey.question3}}</td>
+                  <td>{{survey.question4}}</td>
+                  <td>{{survey.question5}}</td>
+                  <td>{{survey.question6}}</td>
+                  <td>{{survey.question7}}</td>
+                  <td>{{survey.question8}}</td>
+                  <td>{{survey.question9}}</td>
+                  <td>{{survey.question10}}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+     
+      </div>
+    </div>
+  </div>
+
+
+  

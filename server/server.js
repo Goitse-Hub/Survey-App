@@ -5,7 +5,7 @@ const dbConfig = require("./app/config/dbconfig")
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to QuickSurveys 🚀." });
 });
 
 require('./app/routes/auth.routes')(app);

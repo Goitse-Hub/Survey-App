@@ -31,5 +31,8 @@ export class SurveyService {
     return this.http.post<any>(URL, body)
   }
   
+  getSurveyResults(): Observable<any> {
+    return this.http.get(API_URL, { responseType: 'json' });
+  }
 
 }

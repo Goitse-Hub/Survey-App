@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand navbar-dark bg-slate-400">
     <a href="#" class="navbar-brand">QuickSurveys 🚀</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isLoggedIn">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">

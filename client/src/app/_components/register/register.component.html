@@ -146,6 +146,7 @@
               type="password"
               class="form-control"
               name="password"
+              pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$"
               [(ngModel)]="form.password"
               required
               minlength="6"
@@ -155,6 +156,9 @@
               <div *ngIf="password.errors?.['required']">Password is required</div>
               <div *ngIf="password.errors?.['minlength']">
                 Password must be at least 6 characters
+              </div>
+              <div *ngIf="password.errors?.['pattern']">
+                Password must contain both letters and numbers
               </div>
             </div>
           </div>

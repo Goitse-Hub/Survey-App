@@ -48,7 +48,9 @@ import { AuthService } from './_services/auth.service';
 import { UpdateuserComponent } from './_components/updateuser/updateuser.component';
 import { CreateSurveyComponent } from './_components/create-survey/create-survey.component';
 import { ForgotPasswordComponent } from './_components/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './_components/reset-password/reset-password.component'
+import { ResetPasswordComponent } from './_components/reset-password/reset-password.component';
+import { ResultsComponent } from './_components/results/results.component';
+import { CreatepasswordComponent } from './_components/createpassword/createpassword.component'
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { ResetPasswordComponent } from './_components/reset-password/reset-passw
     UpdateuserComponent,
     CreateSurveyComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ResultsComponent,
+    CreatepasswordComponent
   
   ],
   imports: [

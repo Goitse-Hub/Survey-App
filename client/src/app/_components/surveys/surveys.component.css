@@ -292,6 +292,7 @@ img{
 
 .cards{
     margin-bottom: 4rem;
+    
     margin-top: 2rem;
 }
 
@@ -317,4 +318,9 @@ button:hover{
 .inside{
     margin-top: 6rem;
     min-height: 100vh;
+}
+
+#oneCar{
+    cursor: pointer;
+  
 }

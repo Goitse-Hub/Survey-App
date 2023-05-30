@@ -12,29 +12,21 @@ import Swal from 'sweetalert2';
 })
 export class ResetPasswordComponent {
   userId:any
-  // form = new FormGroup({
-  //   userId: new FormControl (''),
-  //   password: new FormControl('', Validators.required),
-  //   confirmPassword: new FormControl('', Validators.required)
-  // })
-  form: any = {
-    userId: null,
-    password: null,
-    confirmPassword: null
-  };
+  form = new FormGroup({
+    userId: new FormControl (''),
+    password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required)
+  })
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private router:Router) {}
      
   ngOnInit(): void {
       this.activatedRoute.paramMap.subscribe((params) => {
-        this.userId= params.get('userid');
+        this.userId= params.get('id');
         
       });
     }
   
       onSubmit() {
-        
-        
-
         if (this.form.status === "INVALID") {
           Swal.fire({
             title: 'Failed!',
@@ -46,7 +38,7 @@ export class ResetPasswordComponent {
           return;
         }
 
-        else if (this.form.value.password !== this.form.value.confirmPassword) {
+        if (this.form.value.password !== this.form.value.confirmPassword) {
           Swal.fire({
             title: 'Failed!',
             text: "Password doesn't match",
@@ -63,7 +55,7 @@ export class ResetPasswordComponent {
         onSubmitSuccessAlert() {
             Swal.fire({
               title: 'Reset Password request',
-              text: 'You have successfully submitted your request',
+              text: 'You have successfully reset your password',
               icon: 'success',
               confirmButtonText: 'OK',
             }).then((result) => {
@@ -72,5 +64,4 @@ export class ResetPasswordComponent {
               }
             })
           }
-         
 }

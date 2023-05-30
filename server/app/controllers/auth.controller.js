@@ -5,7 +5,7 @@ const db = require("../models");
 const User = db.user;
 const Role = db.role;
 const sendEmail = require("../utils/email/sendEmail");
-const clientBaseUrl = 'http://localhost:8081';
+const clientBaseUrl = 'http://localhost:4200';
 
 // Generate A Token Using Jsonwebtoken
 var jwt = require("jsonwebtoken");
@@ -250,20 +250,92 @@ exports.requestPasswordReset = (req, res) => {
 };
 
 exports.resetPassword = (req, res) => {
+  
+  const id = req.body.userId;
+  User.findByIdAndUpdate(id,
+    { $set: { password: bcrypt.hashSync(req.body.password, 8)} },
+    { useFindAndModify: false })
+    .then((user) => {
+      // If Username Doesn't Exist In Database
+      if (!user) {
+        res.send({ message: "User Not found." });
+      } else 
+      {
+        const link = `${clientBaseUrl}/resetPassword/${user._id}`;
+        let data = {
+          link: link,
+          baseUrl: clientBaseUrl
+        };
+        sendEmail({
+          to: user.email, subject:
+            "Password Reset Successfully"
+          , name: user.name, data: data,
+          templatePath: "././app/utils/email/templates/passwordResetSuccess.html"
+        });
+        res.send({ isSuccessful: true });
+      }
+    })
+    .catch(err => {
+      res.send({
+        message: "Error updating user password with id=" + id
+      });
+    });
 
- const user = User.findById({ userId: req.body.userId });
- 
- User.findByIdAndUpdate({ _id: req.body.userId },
-   { $set: { password: req.body.password } },
-   { useFindAndModify: false });
-   
-   let data = {
-     baseUrl: clientBaseUrl
- };
+    // Admin Add User
+    //Request PAssword controller
+// exports.requestNewPassword = (req, res) => {
+//   User.findOne({ email: req.body.email }).exec((err, user) => {
+//    if (err) {
+//      res.status(500).send({ message: err });
+//      return;
+//    }
+//    // If Username Doesn't Exist In Database
+//    if (!user) {
+//      return res.status(404).send({ message: "User Not found." });
+//    }
 
- sendEmail({ to: user.email, subject: 
-   "Password Reset Successfully"
-   , name: user.name, data: data, 
- templatePath: "././app/utils/email/templates/passwordResetSuccess.html" });
- return res.send({ isSuccessful: true });
-};
+//    const link = `${clientBaseUrl}/createNewPassword/${user._id}`;
+//    let data = {
+//      link: link,
+//      baseUrl: clientBaseUrl
+//  };
+//    sendEmail({ to: user.email, subject: "Password Reset Request", name: user.name, data: data, templatePath: "././app/utils/email/templates/requestPasswordReset.html" });
+//    return res.send({ link: link });
+//  });
+// };
+
+// exports.createNewPassword = (req, res) => {
+  
+//   const id = req.body.userId;
+//   User.findByIdAndUpdate(id,
+//     { $set: { password: bcrypt.hashSync(req.body.password, 8)} },
+//     { useFindAndModify: false })
+//     .then((user) => {
+//       // If Username Doesn't Exist In Database
+//       if (!user) {
+//         res.send({ message: "User Not found." });
+//       } else 
+//       {
+//         const link = `${clientBaseUrl}/createNewPassword/${user._id}`;
+//         let data = {
+//           link: link,
+//           baseUrl: clientBaseUrl
+//         };
+//         sendEmail({
+//           to: user.email, subject:
+//             "Password Reset Successfully"
+//           , name: user.name, data: data,
+//           templatePath: "././app/utils/email/templates/passwordResetSuccess.html"
+//         });
+//         res.send({ isSuccessful: true });
+//       }
+//     })
+//     .catch(err => {
+//       res.send({
+//         message: "Error updating user password with id=" + id
+//       });
+//     });
+
+// };
+
+}

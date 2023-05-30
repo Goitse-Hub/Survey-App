@@ -30,7 +30,7 @@ export class AppComponent {
       
       this.username = user.username;
 
-      if(this.username === 'groupcfs'){
+      if(this.username === 'mike'){
         this.showAdminBoard = true
         this.showModeratorBoard = false
       }

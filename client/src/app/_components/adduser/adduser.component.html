@@ -59,6 +59,7 @@
                 name="password"
                 [(ngModel)]="form.password"
                 required
+                pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$"
                 minlength="6"
                 #password="ngModel" placeholder="Ex. hay@193js">
                 <div class="alert-danger" *ngIf="password.errors && f.submitted">
@@ -66,6 +67,9 @@
                     <div *ngIf="password.errors?.['minlength']">
                       Password must be at least 6 characters
                     </div>
+                    <div *ngIf="password.errors?.['pattern']">
+                        Password must contain both letters and numbers
+                      </div>
                   </div>
             </mat-form-field>
             <!-- <mat-form-field appearance="outline">

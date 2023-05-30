@@ -82,7 +82,7 @@ export class TakesurveyComponent {
     }
 
     this.form.value["templateid"] = this.surveyItem.id;
-
+    this.form.value["title"] = this.title;
     
     this.surveyService.saveSurvey(this.form.value)
       .subscribe((data: any) => {

@@ -17,17 +17,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users; let i = index">
-              <td>{{i + 1}}</td>
-              <td>{{user.username}}</td>
-              <td>{{user.email}}</td>
-              <!-- <td>{{user.roles}}</td> -->
-              <!-- <td>R {{user.title}}</td> -->
-           
-              <td>
-                <button  class="btn btn-danger" id="btn" (click)="onDeleteUser(user._id)">Delete</button>
-              </td>
-            </tr>
+            <ng-container *ngFor="let user of users; let i = index">
+              <tr *ngIf="i !== 0">
+                <td>{{i}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                  <button class="btn btn-danger" id="btn" (click)="onDeleteUser(user._id)">Delete</button>
+                </td>
+              </tr>
+            </ng-container>
             <!-- <tr>
               <td colspan="8" id="grantotal"><h4>Total Amount Due: R </h4></td>
             </tr> -->
@@ -37,12 +36,12 @@
           
     
           </table>
-          <h3 id="sum">Total Number Of Users: {{totalUsers()}}</h3>
+          <h3 id="sum">Total Number Of Users: {{totalUsers() -1 }}</h3>
           <hr>
           <div class="last">
             <button class="btn btn-primary" routerLink="/Products" (click)="openAddEditEmpForm()">Add User</button>
           
-            <button class="btn btn-danger" >Delete All Users</button>
+            <button class="btn btn-danger" >Clear All Users</button>
             <!-- <button class="btn btn-success">Check Out</button> -->
           </div>
       </div>

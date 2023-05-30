@@ -39,6 +39,10 @@ export class ForgotPasswordComponent {
       text: 'You have successfully submitted your request',
       icon: 'success',
       confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.value) {
+       this.router.navigate(['/login']);
+      }
     });
   }
 }
