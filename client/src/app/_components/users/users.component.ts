@@ -14,20 +14,6 @@ import Swal from 'sweetalert2'
 
 export class UsersComponent {
 
-  displayedColumns: string[] = [
-    'id',
-    'firstName',
-    'lastName',
-    'email',
-    'dob',
-    'gender',
-    'education',
-    'company',
-    'experience',
-    'package',
-    'action',
-  ];
-
   users: any;
   numUsers: any;
 

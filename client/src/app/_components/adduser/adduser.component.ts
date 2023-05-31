@@ -54,39 +54,7 @@ export class AdduserComponent implements OnInit {
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
   }
-
-  onFormSubmit() {
-    
-
-    // if (this.empForm.valid) {
-    //   if (this.data) {
-    //     this.userService
-    //       .updateUser(this.data.id, this.empForm.value)
-    //       .subscribe({
-    //         next: (val: any) => {
-    //           this._coreService.openSnackBar('Employee detail updated!');
-    //           this._dialogRef.close(true);
-    //         },
-    //         error: (err: any) => {
-    //           console.error(err);
-    //         },
-    //       });
-    //   } else {
-    //     this.userService.addUser(this.empForm.value).subscribe({
-    //       next: (val: any) => {
-    //         this._coreService.openSnackBar('Employee added successfully');
-    //         this._dialogRef.close(true);
-    //       },
-    //       error: (err: any) => {
-    //         console.error(err);
-    //       },
-    //     });
-    //   }
-    // }
-  };
-
-//asdasd
-
+  
   onSubmit(): void {
     const { username, email, password } = this.form;
     //This Method That Returns An Observable Object (authService.register())
@@ -97,33 +65,13 @@ export class AdduserComponent implements OnInit {
         this.isSignUpFailed = false;
        
         this.reloadPage();
-
-        
         // window.location.replace("/login")
-       
-         
       },
-      
-      
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
- 
-      }
-      
+      }    
     });
-    // this.authService.requestNewPassword(this.form.value).subscribe((data: any) => {
-    //   this.onSubmitSuccessAlert();
-    // });
-  }
-
-  onSubmitSuccessAlert() {
-    Swal.fire({
-      title: 'Email Sent To User',
-      text: 'You have successfully submitted your request',
-      icon: 'success',
-      confirmButtonText: 'OK',
-    })
   }
   
   reloadPage(): void {

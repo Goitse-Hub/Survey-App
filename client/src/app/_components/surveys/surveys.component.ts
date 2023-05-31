@@ -10,11 +10,7 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./surveys.component.css']
 })
 export class SurveysComponent {
-  // surveyServ: any;
-  // addForm: any;
-  // router: any;
-  // msg!: string; 
-  // Survey: any;
+
   surveys:any;
 
   constructor( public fb: FormBuilder, public surveyService: SurveyService, public router: Router)
@@ -40,33 +36,6 @@ onGetSurveys(): void {
     }
  });
 
-  // onSubmit() {
-  //   this.surveyServ.save(this.addForm.value)
-  //     .subscribe( (data: any) => {
-  //       this.router.navigate(['list-user']);
-  //       this.msg = 'Thank you for your feedback';
-  //     });
-  // }
-
-  // opensweetalert(){
-  //   Swal.fire({
-  //     title: 'Survey Submitted',
-  //      text: 'thank you!',
-  //     icon: 'success',
-  //     confirmButtonText: 'Yes',
-  //   }).then((result)=>{
-  //     if (result.value){
-  //       this._router.navigate(["/user"])
-        
-  //     }
-      
-  //   }
-  //   )
-    
-   
-      
-      
-  //   }
   }
 
   
