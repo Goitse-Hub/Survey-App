@@ -1,0 +1,36 @@
+
+.optionsContainer{
+    display: flex;
+}
+.card{
+    margin-top: 20px;
+    margin: 50px;
+}
+
+.navbar{
+background-color: rgb(202, 200, 200);
+}
+.navbar-name{
+    font-size: larger;
+    font-weight: 500;
+}
+.card-body{
+   text-align: center;
+}
+
+#create{
+    margin-bottom: 5px;
+    background-color: rgb(33, 127, 198);
+}
+
+
+.container{
+    margin-top: 8rem;
+}
+
+
+#dash-head{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}

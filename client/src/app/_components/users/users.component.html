@@ -1,0 +1,42 @@
+
+<div class="container">
+    <h1 id="con-title">VIEW USERS</h1>
+    <div class="card-table">
+      <div class="cart-product w-100">
+        <table class="table table-responsive" id="tble">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Username</th>
+              <th>Email Address</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let user of users; let i = index">
+              <tr *ngIf="i !== 0">
+                <td>{{i}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                  <button class="btn btn-danger" id="btn" (click)="onDeleteUser(user._id)">Delete</button>
+                </td>
+              </tr>
+            </ng-container>
+
+          </tbody>
+
+          </table>
+          <h3 id="sum">Total Number Of Users: {{totalUsers() -1 }}</h3>
+          <hr>
+          <div class="last">
+            <button class="btn btn-primary" routerLink="/Products" (click)="openAddEditEmpForm()">Add User</button>
+          
+            <button class="btn btn-danger" >Clear All Users</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  

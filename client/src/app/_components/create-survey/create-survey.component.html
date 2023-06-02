@@ -1,0 +1,77 @@
+<div class="container">
+  <h2 class="page-title">Create Survey</h2>
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <label for="title">Enter Survey Title</label>
+    <!-- <input style="height: 40px;border: 1px solid;" type="text" id="title" formControlName="title"> -->
+    <div class="flex items-center border-b border-teal-500 py-2">
+      <input style="height: 40px;border: 1px solid;" 
+        class="form-control w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        type="text"
+        placeholder="Enter Survey Title"
+        aria-label="Full name"
+        formControlName="title"
+      />
+    </div>
+    <br />
+    <label for="title">Enter Survey Description:</label>
+    <input style="height: 40px;border: 1px solid;"
+      class="form-control w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        type="text"
+        placeholder="Enter Survey Decription"
+      formControlName="description"
+    />
+
+    <div formArrayName="questions">
+      <div  style="padding: 20px;border: 1px solid; border-radius: 10px;margin-top: 10px;" *ngFor="let questionGroup of questionGroups.controls; let i = index">
+        <label>Question {{ i + 1 }}:</label>
+        <input style="height: 40px;border: 1px solid;"
+          class="form-control text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+          type="text"
+          aria-label="Full name"
+          formControlName="choices"
+        />
+        <div style="padding-top:20px"  formArrayName="options">
+          <div
+            *ngFor="
+              let optionGroup of getOptionControls(
+                getQuestionGroup(questionGroup)
+              ).controls;
+              let j = index
+            "
+          >
+            <div class="row">
+              <div class="col-6">
+                <input style="height: 40px;border: 1px solid;"
+              class="form-control text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+              type="text"
+              formControlName="choices"
+            />
+              </div>
+              <div class="col-6">
+             
+            <button class="btn btn-secondary  btn2"  style="margin-bottom:20px; background-color: rgb(244, 11, 15);"
+              type="button"
+              (click)="removeOption(getQuestionGroup(questionGroup), j)"
+            >
+              Remove Option
+            </button>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary  btn2" style="background-color: #44b05f;"
+            type="button"
+            (click)="addOption(getQuestionGroup(questionGroup))"
+          >
+            Add Option
+          </button>
+        </div>
+        <button class="btn btn-secondary  btn2" style="margin-top:10px; background-color: rgb(244, 11, 15);" type="button" (click)="removeQuestion(i)">
+          Remove Question
+        </button>
+      </div>
+      <button  class="btn btn-secondary  btn2" style="margin-bottom:10px;margin-top:10px;background-color: #44b05f;" type="button" (click)="addQuestion()">Add Question</button>
+    </div>
+
+    <button class="btn btn-secondary  btn2" style="background-color: #44b05f;" type="submit">Create Survey</button>
+  </form>
+</div>

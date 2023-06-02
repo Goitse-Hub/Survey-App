@@ -1,0 +1,30 @@
+.heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+.heading h2{
+    font-size: 3rem;
+}
+
+.container{
+    margin-top: 10rem;
+    margin-bottom: 50vh;
+}
+
+#email-icon{
+    width: 2rem;
+    display: flex;
+    margin-right: 4px;
+}
+
+.emaiil{
+    display: flex;
+   align-items: center;
+   
+}
+/* .emaiil b{
+    margin-top: 4px;
+} */

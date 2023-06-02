@@ -1,0 +1,88 @@
+<div class="inside">
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div *ngIf="loaded" class="col-md-8">
+        <h1 id="register ">{{ title }}</h1>
+        <div class="card w-100 bg-base-100 shadow-xl">
+          <div class="card-body bg-slate-200">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" id="regForm">
+              <p class="fw-bold"></p>
+              <br />
+              <div class="wrapper" *ngFor="let question of surveyQuestions">
+                <div *ngIf="question.type === 'text'">
+                  <label class="fw-bold mb-8"><b>{{question.title}}</b></label><br>
+                  <input required [formControlName]="question.name" [value]="question.value" [id]="question.name" class="form-text-input input-text" type="text" placeholder="{{question.title}}" id="radioExample1" />
+                </div>
+                <br>
+  
+                <div *ngIf="question.type === 'rating'">
+                  <label class="fw-bold mb-8"><b>{{question.title}}</b></label><br>
+                  <input required [formControlName]="question.name" [id]="question.name" class="form-text-input input-text" type="text" placeholder="{{question.title}}" id="radioExample1" />
+                </div>
+                <br>
+                <div cl *ngIf="question.type === 'radiogroup'">
+                  <label class="fw-bold mb-8"><b>{{question.title}}</b></label><br>
+                  <div class="form-check mb-2" *ngFor="let choice of question.choices">
+                      <input required [formControlName]="question.name" [value]="choice.value" class="form-check-input" type="radio" />
+                      <label class="form-check-label" for="radioExample1">
+                          {{choice.text}}
+                      </label>
+                    </div>
+                </div>
+                <br>
+                <div *ngIf="question.type === 'comment'">
+                  <label class="fw-bold mb-8"><b>{{question.title}}</b></label><br>
+                  <textarea required [formControlName]="question.name" [id]="question.name" class="input-text sd-comment sd-input" id="sq_101i" cols="50" rows="4" placeholder="" aria-required="false" aria-label="What can we do to make your experience more satisfying?" aria-invalid="false" style="resize: both;"></textarea>
+                  <div *ngIf="question.name.errors?.['required']">
+                    {{question.title}} is required.
+                  </div>
+                </div>
+              </div>
+              <br />
+              
+              <div style="overflow: auto" id="nextprevious">
+                <!-- <div style="float:right;">
+                                <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> 
+                                <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div> -->
+                <div class="text-end">
+                  <button
+                    type="submit"
+                    class="btn btn-primary hover:bg-green-600 card-actions mr-2 justify-end"
+                  >
+                    Submit
+                  </button>
+                  <button (click)="onCancel()"
+                    type="button"
+                    class="btn btn-primary bg-red-600 cbutton cbtn-primary:hover card-actions justify-end"
+                  >
+                    Cancel
+                  </button>
+  
+                  <div class="thanks-message text-center" id="text-message">
+                    <img
+                      src="https://i.imgur.com/O18mJ1K.png"
+                      width="100"
+                      class="mb-4"
+                    />
+                    <h3>Thank you for your feedback!</h3>
+                    <span
+                      >Thanks for your valuable information. It helps us to
+                      improve our services!</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div *ngIf="!loaded && !invalidSelection" class="col-md-8">
+        <span class="loader">Loading...</span>
+      </div>
+    </div>
+    <div *ngIf="invalidSelection" class="col-md-8">
+      <span class="loader">The selected template is not available...</span>
+    </div>
+  </div>
+</div>

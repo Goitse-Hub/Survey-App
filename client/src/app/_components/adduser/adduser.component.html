@@ -1,0 +1,82 @@
+<div class="container">
+
+<div mat-dialog-title id="head">
+    <h1>Add User Form</h1>
+</div>
+<form 
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field class="form-group">
+                <mat-label>Username</mat-label>
+                <input matInput  type="text"
+                class="form-control"
+                name="username"
+                [(ngModel)]="form.username"
+                required
+                minlength="3"
+                maxlength="20"
+                #username="ngModel" placeholder="Ex. Bosele">
+                <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                    <div *ngIf="username.errors?.['required']">Username is required</div>
+                    <div *ngIf="username.errors?.['minlength']">
+                      Username must be at least 3 characters
+                    </div>
+                    <div *ngIf="username.errors?.['maxlength']">
+                      Username must be at most 20 characters
+                    </div>
+                  </div>
+            </mat-form-field>
+            
+            <mat-form-field  class="form-group">
+                <mat-label>Email</mat-label>
+                <input matInput type="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="form.email"
+                required
+                email
+                #email="ngModel" placeholder="Ex. test@gmail.com">
+                <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                    <div *ngIf="email.errors?.['required']">Email is required</div>
+                    <div *ngIf="email.errors?.['email']">
+                      Email must be a valid email address
+                    </div>
+                  </div>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <mat-form-field >
+                <mat-label>Password</mat-label>
+                <input matInput type="password"
+                class="form-control"
+                name="password"
+                [(ngModel)]="form.password"
+                required
+                pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$"
+                minlength="6"
+                #password="ngModel" placeholder="Ex. hay@193js">
+                <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors?.['required']">Password is required</div>
+                    <div *ngIf="password.errors?.['minlength']">
+                      Password must be at least 6 characters
+                    </div>
+                    <div *ngIf="password.errors?.['pattern']">
+                        Password must contain both letters and numbers
+                      </div>
+                  </div>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action" class="form-group">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>
+</div>

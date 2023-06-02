@@ -1,0 +1,67 @@
+#create{
+    background-color: azure;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#create:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+#take{
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#take:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.info{
+    text-align: center;
+}
+.survey-btn {
+    
+    text-align: center;
+    margin-top: 1rem;
+
+}
+
+.survey-btn a{
+    margin-left: 1rem;
+
+}
+
+
+.head-title h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.head-title h3{
+    text-align: center;
+    font-size: 1.5rem;
+    
+}
+
+img{
+    height: 20rem;
+}
+
+.cards{
+    margin-bottom: 4rem;
+}
+
+button{
+    transition: 0.3s ease-in-out;
+    background-color: rgb(33, 127, 198);
+}
+
+
+button:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}

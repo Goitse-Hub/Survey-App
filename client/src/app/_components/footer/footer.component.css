@@ -1,0 +1,15 @@
+*{
+    color: #FFFFFF80;
+    background: #94A3B8;
+}
+
+/* body{
+   
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+} */
+
+footer{
+    margin-top: 10%;
+}
