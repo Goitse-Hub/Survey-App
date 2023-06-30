@@ -29,6 +29,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { AuthService } from './_services/auth.service';
+
 
 
 @NgModule({
@@ -64,7 +66,7 @@ import {MatButtonModule} from '@angular/material/button';
     
 
   ],
-  providers: [authInterceptorProviders, SurveyService],
+  providers: [authInterceptorProviders, SurveyService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
